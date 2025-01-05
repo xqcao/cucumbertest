@@ -10,9 +10,7 @@ import static io.cucumber.junit.platform.engine.Constants.PLUGIN_PROPERTY_NAME;
 @Suite
 @IncludeEngines("cucumber")
 @SelectClasspathResource("features")
-@ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "com.example01.democomponent")
+@ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "com.example01.democomponent.steps")
 @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty")
 public class CucumberTests {
-    // This class can remain empty
-    // It's just used to configure the Cucumber test runner
 }
