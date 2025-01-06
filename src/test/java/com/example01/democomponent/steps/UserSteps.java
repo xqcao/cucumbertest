@@ -20,6 +20,14 @@ public class UserSteps {
         this.userRepository = userRepository;
     }
 
+    @When("I create a user with name {string} and email {string}")
+    public void i_create_a_user_with_name_and_email(String name, String email) {
+        User user = new User();
+        user.setName(name);
+        user.setEmail(email);
+        response = restTemplate.postForEntity("/api/users", user, User.class);
+    }
+
     @Given("a user exists with name {string} and email {string}")
     public void a_user_exists_with_name_and_email(String name, String email) {
         User user = new User();
@@ -34,8 +42,8 @@ public class UserSteps {
     }
 
     @Then("the response status code should be {int}")
-    public void the_response_status_code_should_be(int expectedStatusCode) {
-        assertEquals(expectedStatusCode, response.getStatusCodeValue());
+    public void the_response_status_code_should_be(int expectedStatus) {
+        assertEquals(expectedStatus, response.getStatusCode().value());
     }
 
     @Then("the response should contain user name {string}")
